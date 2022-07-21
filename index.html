@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <title>Alarm Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-center shadow">
+                        <h1 class="text-uppercase text-white">Alarm Clock</h1>
+                    </div>
+                    <div  class="card-body text-center my-2">
+                        <form id="date_time" class="d-flex justify-content-between align-items-center border border-1 border-primary rounded rounded-5 shadow">
+                        <input class="form-group border-0 rounded-0 text-primary p-1" type="date" name="date" id="">
+                        <input class="form-group border-0 rounded-0 text-primary p-1" type="time" name="time" id="">
+                        <input class="form-group border-0 rounded-0 text-primary w-25 p-1" type="number" name="alarm_time" id="" placeholder="Alarm turn off :">
+                        <button class="form-group  border-0 btn btn-primary h-50 rounded-0 text-uppercase" type="submit">turn on</button>
+                        </form>
+                        <div class="result py-4 ">
+                            <div class="p-1 shadow border border-1 rounded rounded-5 border-primary">
+                            <div class="d-flex justify-content-between align-items-center px-1 py-1  text-white">
+                                <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary   px-2 py-3 text-white rounded rounded-5 ">
+                                    <span class="d-inline-block h5">0</span>
+                                    <span class="h5"> Day </span>
+                                    </div>
+                            
+                                :
+                                <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary   px-2 py-3 text-white rounded rounded-5">
+                                <span class="d-inline-block h5">0</span>
+                                <span class="h5"> Hour </span>
+                                </div>
+                                :
+                                <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary  px-2 py-3  text-white rounded rounded-5">
+                                <span class="d-inline-block h5">0</span>
+                                <span class="h5">Munites</span>
+                                </div>
+                                :
+                                <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary  px-2 py-3  text-white rounded rounded-5">
+                                <span class="d-inline-block h5">0</span>
+                                <span class="h5">Second</span>
+                                </div>
+                            </div>
+                                </div>   
+                            <audio  id="audio" src="./assets/audio/mixkit-retro-game-emergency-alarm-1000.wav"></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/function.js"></script>
+</body>
+</html>
