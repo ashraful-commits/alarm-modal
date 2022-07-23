@@ -14,21 +14,9 @@ const timerFunction = (date, time, result,interval=null,audio=null,stop=null) =>
     let min = total_min - (total_day * 24 * 60)-(hour * 60);
     let second = total_sec - (total_day * 24 * 60 * 60) - (hour * 60 * 60) - (min * 60);
    
-    if (total_sec <= 0) {
-        clearInterval(interval) 
-        audio.play();
-        let num = 0;
-        let stopInt = setInterval(() => {
-            num++;
-            if (num == stop) {            
-                audio.pause()
-                clearInterval(stopInt) 
-            }
-           
-        },1000)
-    } else {
-        
-        result.innerHTML =`
+    
+    if (total_sec >= 0) {
+        result.innerHTML = `
         <div class="d-flex justify-content-between align-items-center px-1 py-1  text-white">
         <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary shadow  px-2 py-3 text-white rounded rounded-5 ">
             <span class="d-inline-block h5">${total_day}</span>
@@ -53,6 +41,18 @@ const timerFunction = (date, time, result,interval=null,audio=null,stop=null) =>
         </div>                
         `
 
+    } else {
+        clearInterval(interval)
+        audio.play();
+        let num = 0;
+        let stopInt = setInterval(() => {
+            num++;
+            if (num == stop) {
+                audio.pause()
+                clearInterval(stopInt)
+            }
+           
+        }, 1000)
     }
     
 }
