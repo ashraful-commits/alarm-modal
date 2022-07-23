@@ -1,5 +1,6 @@
 const date_time = document.getElementById('date_time');
 const result = document.querySelector('.result')
+const stop = document.querySelector('.stop')
 const audio_one = document.getElementById('audio')
 
 
@@ -13,12 +14,24 @@ date_time.addEventListener('submit', (e) => {
         alert('Please set time');
         e.target.reset();
     } else {
+        
         let setInt = setInterval(() => {
             timerFunction(date, time, result, setInt, audio_one, alarm_time)
         }, 1000)
         
         e.target.reset();
     }
-        
+    
 
 })  
+
+        stop.onclick = (e) => {
+            e.preventDefault()
+            audio_one.play();
+            if (audio_one.play()) {
+                audio_one.pause()
+            } else {
+                audio_one.play();
+            }
+            
+     }

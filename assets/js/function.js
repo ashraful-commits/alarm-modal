@@ -14,7 +14,7 @@ const timerFunction = (date, time, result,interval=null,audio=null,stop=null) =>
     let min = total_min - (total_day * 24 * 60)-(hour * 60);
     let second = total_sec - (total_day * 24 * 60 * 60) - (hour * 60 * 60) - (min * 60);
    
-    if (total_sec == 0) {
+    if (total_sec <= 0) {
         clearInterval(interval) 
         audio.play();
         let num = 0;
@@ -26,31 +26,33 @@ const timerFunction = (date, time, result,interval=null,audio=null,stop=null) =>
             }
            
         },1000)
+    } else {
+        
+        result.innerHTML =`
+        <div class="d-flex justify-content-between align-items-center px-1 py-1  text-white">
+        <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary shadow  px-2 py-3 text-white rounded rounded-5 ">
+            <span class="d-inline-block h5">${total_day}</span>
+            <span class="h5"> Day </span>
+            </div>
+    
+        :
+        <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary shadow  px-2 py-3 text-white rounded rounded-5">
+        <span class="d-inline-block h5">${hour}</span>
+        <span class="h5"> Hour </span>
+        </div>
+        :
+        <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary shadow px-2 py-3  text-white rounded rounded-5">
+        <span class="d-inline-block h5">${min}</span>
+        <span class="h5">Munites</span>
+        </div>
+        :
+        <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary shadow px-2 py-3  text-white rounded rounded-5">
+        <span class="d-inline-block h5">${second}</span>
+        <span class="h5">Second</span>
+        </div>
+        </div>                
+        `
+
     }
     
-
-           result.innerHTML =`
-                    <div class="d-flex justify-content-between align-items-center px-1 py-1  text-white">
-                    <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary shadow  px-2 py-3 text-white rounded rounded-5 ">
-                        <span class="d-inline-block h5">${total_day}</span>
-                        <span class="h5"> Day </span>
-                        </div>
-                
-                    :
-                    <div style="width: 100px; height: 100px" class="d-flex flex-column bg-primary shadow  px-2 py-3 text-white rounded rounded-5">
-                    <span class="d-inline-block h5">${hour}</span>
-                    <span class="h5"> Hour </span>
-                    </div>
-                    :
-                    <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary shadow px-2 py-3  text-white rounded rounded-5">
-                    <span class="d-inline-block h5">${min}</span>
-                    <span class="h5">Munites</span>
-                    </div>
-                    :
-                    <div style="width: 100px; height: 100px" class="d-flex flex-column  bg-primary shadow px-2 py-3  text-white rounded rounded-5">
-                    <span class="d-inline-block h5">${second}</span>
-                    <span class="h5">Second</span>
-                    </div>
-                    </div>                
-                    `
 }
